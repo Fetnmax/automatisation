@@ -1,0 +1,33 @@
+##### Couche OS 
+# Utilisation de l'image python version 3
+# avec le tag -alpine afin d'utiliser une
+# image de base très légère. 
+FROM python:3-alpine
+##### Métadonnées de l'image
+LABEL version="1.0" maintainer="Laborde Romain r.laborde@etud.univ-pau.fr"
+##### Variable temporaire
+# Répertoire dans lequel on copie les 
+# fichers nécessaires pour l'application
+# en python, et qui sera le répertoire de
+# travail du conteneur.
+ARG WDIR='/usr/src/app'
+# La variable d'environnement ARGC permet 
+# spécifié un host pour le téléchargement 
+# des librairies python, l'option 
+# --no-cache-dir permet de réduire la taille
+# de l'image en désactivant la mise en cache
+ENV ARGC='--trusted-host pypi.org --trusted-host files.pythonhosted.org --no-cache-dir'
+COPY app.py ${WDIR}/
+WORKDIR ${WDIR}
+##### Port
+# Ouverture du port http
+EXPOSE 8000
+##### Point d'entrée du contaneur
+# Au démarrage du conteneur, on procède
+# à l'installation de Flask
+# puis si l'installation se déroule sans erreur
+# on procède au lancement de l'application en premier
+# plan via le fichier app.py 
+ENTRYPOINT pip install ${ARGC} Flask && \
+           pip install ${ARGC} psycopg2-binary && \
+           python3 app.py -D FOREGROUND

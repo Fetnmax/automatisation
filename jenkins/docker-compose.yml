@@ -1,0 +1,27 @@
+services:
+  jenkins:
+    image: jenkins/jenkins
+    container_name: jenkins
+    ports:
+      - "8080:8080"
+      - "50000:50000"
+    volumes:
+      - jenkins_home:/var/jenkins_home
+    networks:
+      - jenkins
+
+  node-1:
+    image: jenkins/agent
+    container_name: jenkins_node_1
+    command: java -jar /usr/share/jenkins/agent.jar -url http://jenkins:8080/ -secret 4ff182d4867d145ab353313acdf926d11a716926bca5f771be1f98f3838ffcb0 -name "node-1" -webSocket -workDir "/home/jenkins"
+    volumes:
+      - ../noeud/.:/home/jenkins
+    networks:
+      - jenkins
+
+volumes:
+  jenkins_home:
+
+networks:
+  jenkins:
+    driver: bridge

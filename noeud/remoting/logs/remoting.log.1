@@ -1,0 +1,43 @@
+Jan 06, 2025 3:40:30 PM hudson.remoting.Launcher createEngine
+INFO: Setting up agent: node-1
+Jan 06, 2025 3:40:30 PM hudson.remoting.Engine startEngine
+INFO: Using Remoting version: 3283.v92c105e0f819
+Jan 06, 2025 3:40:30 PM org.jenkinsci.remoting.engine.WorkDirManager initializeWorkDir
+INFO: Using /home/jenkins/remoting as a remoting work directory
+Jan 06, 2025 3:40:30 PM hudson.remoting.Launcher$CuiListener status
+INFO: http://jenkins:8080/login is not ready
+java.net.ConnectException: Connection refused
+	at java.base/sun.nio.ch.Net.connect0(Native Method)
+	at java.base/sun.nio.ch.Net.connect(Unknown Source)
+	at java.base/sun.nio.ch.Net.connect(Unknown Source)
+	at java.base/sun.nio.ch.NioSocketImpl.connect(Unknown Source)
+	at java.base/java.net.Socket.connect(Unknown Source)
+	at java.base/java.net.Socket.connect(Unknown Source)
+	at java.base/sun.net.NetworkClient.doConnect(Unknown Source)
+	at java.base/sun.net.www.http.HttpClient.openServer(Unknown Source)
+	at java.base/sun.net.www.http.HttpClient.openServer(Unknown Source)
+	at java.base/sun.net.www.http.HttpClient.<init>(Unknown Source)
+	at java.base/sun.net.www.http.HttpClient.New(Unknown Source)
+	at java.base/sun.net.www.http.HttpClient.New(Unknown Source)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getNewHttpClient(Unknown Source)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect0(Unknown Source)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect(Unknown Source)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.connect(Unknown Source)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getInputStream0(Unknown Source)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getInputStream(Unknown Source)
+	at java.base/java.net.HttpURLConnection.getResponseCode(Unknown Source)
+	at hudson.remoting.Engine.pingSuccessful(Engine.java:848)
+	at hudson.remoting.Engine.succeedsWithRetries(Engine.java:828)
+	at hudson.remoting.Engine.runWebSocket(Engine.java:786)
+	at hudson.remoting.Engine.run(Engine.java:541)
+
+Jan 06, 2025 3:40:30 PM hudson.remoting.Launcher$CuiListener status
+INFO: Waiting 1 second before retry
+Jan 06, 2025 3:40:33 PM hudson.remoting.Launcher$CuiListener status
+INFO: http://jenkins:8080/login is not ready: 503
+Jan 06, 2025 3:40:33 PM hudson.remoting.Launcher$CuiListener status
+INFO: Waiting 3 seconds before retry
+Jan 06, 2025 3:40:36 PM hudson.remoting.Launcher$CuiListener status
+INFO: WebSocket connection open
+Jan 06, 2025 3:40:36 PM hudson.remoting.Launcher$CuiListener status
+INFO: Connected
